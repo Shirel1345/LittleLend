@@ -2,11 +2,11 @@
   <div class="bird-icon">
     <img src="assets/baby-bird.png" alt="Bird Icon" />
   </div>
-  <h2>New Loan</h2>
+  <h2>השאלה חדשה</h2>
   <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     <div>
       <mat-form-field>
-        <label for="productName">Product Name:</label>
+        <label for="productName">:שם המוצר</label>
         <input
           matInput
           type="text"
@@ -20,7 +20,7 @@
 
     <div>
       <mat-form-field>
-        <label for="date">Date:</label>
+        <label for="date">תאריך:</label>
         <input
           matInput
           [matDatepicker]="picker"
@@ -36,7 +36,7 @@
 
     <div>
       <mat-form-field>
-        <label for="returnDate">Return Date:</label>
+        <label for="returnDate">תאריך החזרה:</label>
         <input
           matInput
           [matDatepicker]="returnPicker"
@@ -55,7 +55,18 @@
 
     <div>
       <mat-form-field>
-        <label for="securityDeposit">Security Deposit:</label>
+        <label for="securityDeposit">אפשרויות פיקדון:</label>
+        <select matNativeControl required>
+          <option value="מזומן">מזומן</option>
+          <option value="ביט">ביט</option>
+          <option value="העברה בנקאית">העברה בנקאית</option>
+        </select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <label for="securityDeposit">סכום פיקדון:</label>
         <input
           matInput
           type="number"
@@ -69,7 +80,7 @@
 
     <div>
       <button mat-raised-button type="submit" [disabled]="!myForm.valid">
-        Submit
+        צור השאלה
       </button>
     </div>
   </form>
