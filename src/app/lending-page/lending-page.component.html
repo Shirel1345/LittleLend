@@ -3,17 +3,31 @@
     <img src="assets/baby-bird.png" alt="Bird Icon" />
   </div>
   <h2>השאלה חדשה</h2>
-  <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loanForm" (ngSubmit)="onSubmit(loanForm)">
     <div>
       <mat-form-field>
         <label for="productName">:שם המוצר</label>
-        <input matInput type="text" id="productName" name="productName" formControlName="productName" required />
+        <input
+          matInput
+          type="text"
+          id="productName"
+          name="productName"
+          formControlName="productName"
+          required
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
         <label for="date">תאריך השאלה:</label>
-        <input matInput [matDatepicker]="picker" id="date" name="date" formControlName="loanDate" required />
+        <input
+          matInput
+          [matDatepicker]="picker"
+          id="date"
+          name="date"
+          formControlName="loanDate"
+          required
+        />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -22,9 +36,18 @@
     <div>
       <mat-form-field>
         <label for="returnDate">תאריך החזרה:</label>
-        <input matInput [matDatepicker]="returnPicker" id="returnDate" name="returnDate"
-          formControlName="returnLoanDate" required [max]="maxReturnDate" />
-        <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+        <input
+          matInput
+          [matDatepicker]="returnPicker"
+          id="returnDate"
+          name="returnDate"
+          formControlName="returnLoanDate"
+          required
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="returnPicker"
+        ></mat-datepicker-toggle>
         <mat-datepicker #returnPicker></mat-datepicker>
       </mat-form-field>
     </div>
@@ -44,13 +67,24 @@
     <div>
       <mat-form-field>
         <label for="securityDeposit">סכום פיקדון:</label>
-        <input matInput type="number" id="securityDeposit" name="securityDeposit" formControlName="securityDeposit"
-          required />
+        <input
+          matInput
+          type="number"
+          id="securityDeposit"
+          name="securityDeposit"
+          formControlName="securityDeposit"
+          required
+        />
       </mat-form-field>
     </div>
 
     <div>
-      <button mat-raised-button ngsubmit=onsubit(myform) type="submit" [disabled]="!loanForm.valid">
+      <button
+        mat-raised-button
+        ngsubmit="onsubit(myform)"
+        type="submit"
+        [disabled]="!loanForm.valid"
+      >
         צור השאלה
       </button>
     </div>
