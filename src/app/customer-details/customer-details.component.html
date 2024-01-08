@@ -1,34 +1,28 @@
 <div>
-  <h2>Contact Details</h2>
+  <h2>פרטי יצירת קשר</h2>
   <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     <div>
-      <label for="productName">Product Name:</label>
+      <label for="שם המוצר">שם המוצר:</label>
       <input type="text" id="productName" name="productName" ngModel required />
     </div>
 
     <div>
-      <label for="date">Date:</label>
+      <label for="תאריך">תאריך:</label>
       <input type="date" id="date" name="date" ngModel required />
     </div>
 
     <div>
-      <label for="securityDeposit">Security Deposit:</label>
-      <input
-        type="number"
-        id="securityDeposit"
-        name="securityDeposit"
-        ngModel
-        required
-      />
+      <label for="פיקדון">פיקדון:</label>
+      <input type="number" id="securityDeposit" name="securityDeposit" ngModel required />
     </div>
 
     <div>
-      <label for="name">Name:</label>
+      <label for="שם">שם :</label>
       <input type="text" id="name" name="name" ngModel required />
     </div>
 
     <div>
-      <label for="phone">Phone:</label>
+      <label for="פלאפון ליצירת קשר">פלאפון ליצירת קשר</label>
       <input type="tel" id="phone" name="phone" ngModel required />
     </div>
 
