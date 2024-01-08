@@ -3,6 +3,8 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { LendingPageComponent } from './lending-page/lending-page.component';
 
 export const routes: Routes = [
+  { path: '', component: LendingPageComponent },
+
   { path: 'lending-page', component: LendingPageComponent },
   { path: 'customer-details', component: CustomerDetailsComponent },
 ];
