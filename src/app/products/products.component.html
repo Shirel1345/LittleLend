@@ -1,0 +1,17 @@
+<!-- בקובץ HTML -->
+<div class="header">
+
+    <img class="logo" src="assets/image1.jpg" alt="My Logo">
+
+
+
+</div>
+
+
+
+<!-- app.component.html -->
+<div class="category" *ngFor="let category of categories">
+    <img routerLink="/admin-login" class="category-image" src="{{ category.image }}" alt="{{ category.name }}"
+        (click)="navigateToCategory(category.link)">
+    <div class="category-description">{{ category.description }}</div>
+</div>

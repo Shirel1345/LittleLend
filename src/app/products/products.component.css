@@ -1,0 +1,93 @@
+/* בקובץ CSS */
+.header {
+    background-color: #c47373;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    /* חשוב להגדיר את position על מנת להשתמש ב-absolute בתוך ה-header */
+}
+
+.logo {
+    max-height: 100px;
+    position: absolute;
+    top: 30px;
+    /* כמה פיקסלים מהקרן העליונה */
+    right: 10px;
+    /* כמה פיקסלים מהקיר הימני */
+}
+
+/* app.component.css */
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-image {
+    width: 200px;
+    /* לדוג', גודל התמונה */
+    height: auto;
+    cursor: pointer;
+}
+
+.category-description {
+    margin-top: 10px;
+    text-align: center;
+}
+
+body {
+    background-image: url('https://2help.org.il/wp-content/uploads/2019/04/%D7%94%D7%91%D7%A0%D7%A7-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99-%D7%9C%D7%9E%D7%96%D7%95%D7%9F-%D7%AA%D7%99%D7%A0%D7%95%D7%A7%D7%95%D7%AA-%D7%9E%D7%9F-%D7%94%D7%A2%D7%AA%D7%95%D7%A0%D7%95%D7%AA.jpg');
+    /* URL לתמונת רקע */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
+
+
+
+/* styles.css או כל קובץ CSS אחר */
+
+.categories {
+    display: flex;
+}
+
+.category {
+    text-align: center;
+    padding: 10px;
+}
+
+.category img {
+    max-width: 100%;
+    height: auto;
+}
+
+.category p {
+    font-size: 14px;
+    /* שינוי גודל הטקסט */
+    margin-top: 8px;
+    /* מרווח מעל לתיאור */
+}
+
+
+
+/* styles.css או כל קובץ CSS אחר */
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    /* או כל אחת מהתכונות האחרות שתתאים לך */
+}
+
+.category {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
