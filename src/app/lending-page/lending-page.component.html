@@ -75,6 +75,9 @@
           formControlName="securityDeposit"
           required
         />
+        <mat-error *ngIf="loanForm.get('securityDeposit').hasError('range')"
+          >סכום פיקדון חייב להיות בין 20 ל-100</mat-error
+        >
       </mat-form-field>
     </div>
 

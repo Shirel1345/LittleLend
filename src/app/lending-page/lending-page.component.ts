@@ -49,13 +49,15 @@ export class LendingPageComponent {
     const currentDate = new Date();
 
     // Check if the selected date is before the current date
+    console.log('selectedDate', selectedDate);
+    console.log('currentDate', currentDate);
+
     if (selectedDate < currentDate) {
       return { invalidDate: true };
     }
 
     return null;
   }
-
   onSubmit(form: FormGroup): void {
     if (form.valid) {
       // Your form submission logic here

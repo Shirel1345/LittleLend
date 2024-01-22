@@ -5,23 +5,20 @@
   height: 90vh;
 }
 
-
 form {
   width: 400px;
   border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: rgb(10, 10, 10)
+  color: rgb(10, 10, 10);
 }
 
 h2 {
   color: palevioletred;
 }
 
-
 h2 {
   text-align: center;
-
 }
 
 mat-form-field {
