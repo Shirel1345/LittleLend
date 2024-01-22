@@ -1,8 +1,20 @@
+body {
+  text-align: right;
+}
+
+.container {
+  background: url("/LittleLend/src/assets/baby-bird.png");
+  display: flex;
+  direction: rtl;
+}
+
+
+
 :host {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+
 }
 
 form {
@@ -11,18 +23,36 @@ form {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: rgb(10, 10, 10);
+  direction: rtl;
+
 }
 
 h2 {
   color: palevioletred;
-}
-
-h2 {
+  background-color: antiquewhite;
   text-align: center;
+
 }
 
 mat-form-field {
   width: 100%;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+input,
+button {
+  /* width: 100%; */
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 14px;
+  margin-top: 14px;
+  font-size: 14px;
+
 }
 
 button {
@@ -35,4 +65,11 @@ button {
   right: 5rem;
   top: 3rem;
   flex-direction: row-reverse;
+}
+
+/* Additional styling for specific elements */
+.full-name,
+.contact-phone {
+  text-align: left;
+  direction: ltr;
 }
