@@ -1,7 +1,7 @@
 /* בקובץ CSS */
 .header {
-    background-color: #c47373;
-    padding: 20px;
+
+    padding: 5px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -12,82 +12,84 @@
 .logo {
     max-height: 100px;
     position: absolute;
-    top: 30px;
+    top: 10px;
     /* כמה פיקסלים מהקרן העליונה */
     right: 10px;
     /* כמה פיקסלים מהקיר הימני */
 }
 
-/* app.component.css */
-.category {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+
+
+div.gallery {
+    border: 1px solid #ccc;
 }
 
-.category-image {
-    width: 200px;
-    /* לדוג', גודל התמונה */
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
     height: auto;
-    cursor: pointer;
 }
 
-.category-description {
-    margin-top: 10px;
+div.desc {
+    padding: 15px;
     text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 body {
-    background-image: url('https://2help.org.il/wp-content/uploads/2019/04/%D7%94%D7%91%D7%A0%D7%A7-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99-%D7%9C%D7%9E%D7%96%D7%95%D7%9F-%D7%AA%D7%99%D7%A0%D7%95%D7%A7%D7%95%D7%AA-%D7%9E%D7%9F-%D7%94%D7%A2%D7%AA%D7%95%D7%A0%D7%95%D7%AA.jpg');
-    /* URL לתמונת רקע */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e7e5e5;
+    /* צבע רקע */
 }
 
-
-
-
-
-/* styles.css או כל קובץ CSS אחר */
-
-.categories {
-    display: flex;
-}
-
-.category {
+h1 {
+    font-family: 'Arial', sans-serif;
+    /* סוג גופן */
+    color: #ffffff;
+    /* צבע טקסט */
     text-align: center;
-    padding: 10px;
-}
-
-.category img {
-    max-width: 100%;
-    height: auto;
-}
-
-.category p {
-    font-size: 14px;
-    /* שינוי גודל הטקסט */
-    margin-top: 8px;
-    /* מרווח מעל לתיאור */
-}
-
-
-
-/* styles.css או כל קובץ CSS אחר */
-
-.categories {
-    display: flex;
-    justify-content: space-between;
-    /* או כל אחת מהתכונות האחרות שתתאים לך */
-}
-
-.category {
-    border: 1px solid #ccc;
-    padding: 10px;
+    /* מיישר למרכז האופקי */
+    padding: 20px;
+    /* ריווח מסביב לטקסט */
+    background-color: #878383;
+    /* צבע רקע של הכותרת */
+    border-radius: 10px;
+    /* פינות מעוגלות */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* צל לכותרת */
 }

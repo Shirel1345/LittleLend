@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { AppComponent } from '../app.component';
+
 
 
 
@@ -45,15 +47,14 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 
-
   ],
   providers: [],
 
+
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css'],
+
 })
-
-
 
 
 
@@ -68,11 +69,12 @@ export class AdminLoginComponent {
   login() {
     const loginData = { username: this.username, password: this.password };
 
-    this.http.post('http://localhost:3000/login', loginData).subscribe(
+    this.http.post('http://localhost:4200/login', loginData).subscribe(
       (response: any) => {
         console.log('התחברות מוצלחת:', response.message);
         this.loginResponse = response; // שמירת התשובה במשתנה
         console.log('response:', response);
+
       },
       (error) => {
         console.error('שגיאה במהלך התחברות:', error.error.message);

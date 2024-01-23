@@ -1,0 +1,72 @@
+/* add-item.component.css */
+
+.add-item-container {
+    max-width: 600px;
+    margin: auto;
+    text-align: right;
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.form-group {
+    margin-bottom: 30px;
+    text-align: right;
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: rgb(10, 10, 10)
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column-reverse;
+    /* שינוי להצגת הטקסט מעל לכפתור */
+    align-items: flex-end;
+    text-align: right;
+}
+
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+form {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: rgb(10, 10, 10);
+}
+
+h2 {
+    color: palevioletred;
+}
+
+h2 {
+    text-align: center;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.bird-icon {
+    display: flex;
+    position: relative;
+    right: 5rem;
+    top: 3rem;
+    flex-direction: row-reverse;
+}

@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 
 
 
+
+
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -48,6 +50,9 @@ export class ProductsComponent {
     console.log('Navigating to category:', link);
   }
 }
+
+
+
 
 
 

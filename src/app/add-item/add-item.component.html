@@ -1,0 +1,77 @@
+<!-- add-item.component.html -->
+
+<div class="add-item-container">
+
+
+    <form (ngSubmit)="addItem()">
+        <div>
+            <div class="bird-icon">
+                <img src="assets/image1.jpg" alt="Bird Icon" />
+            </div>
+            <h2>הוספת פריט למנהל</h2>
+            <mat-form-field>
+                <label for="securityDeposit">קטגוריה :</label>
+                <select matNativeControl formControlName="depositOptions" required>
+                    <option value="מזומן">ריהוט</option>
+                    <option value="ביט">הנקה והאכלה</option>
+                    <option value="העברה בנקאית"> בטיחות</option>
+                    <option value="צ'ק">מנשאים</option>
+                    <option value="צ'ק">שונות</option>
+                </select>
+            </mat-form-field>
+
+
+        </div>
+
+        <!-- Category -->
+        <div class="form-group">
+            <label for="category">קטגוריה:</label>
+            <input type="text" id="category" name="category" [(ngModel)]="category" />
+        </div>
+
+        <!-- Image -->
+        <div class="form-group">
+            <label for="image">תמונה:</label>
+            <input type="text" id="image" name="image" [(ngModel)]="image" />
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">שם:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="name" />
+        </div>
+
+        <!-- Company -->
+        <div class="form-group">
+            <label for="company">חברה:</label>
+            <input type="text" id="company" name="company" [(ngModel)]="company" />
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">תיאור:</label>
+            <textarea id="description" name="description" [(ngModel)]="description"></textarea>
+        </div>
+
+        <!-- Deposit -->
+        <div class="form-group">
+            <label for="deposit">גובה פיקדון:</label>
+            <input type="number" id="deposit" name="deposit" [(ngModel)]="deposit" />
+        </div>
+
+        <!-- Question -->
+        <div class="form-group">
+            <label for="question">השאלה/החזרה חדשה:</label>
+            <input type="text" id="question" name="question" [(ngModel)]="question" />
+        </div>
+
+        <!-- Is Available (Checkbox) -->
+        <div class="form-group">
+            <label for="isAvailable">זמין:</label>
+            <input type="checkbox" id="isAvailable" name="isAvailable" [(ngModel)]="isAvailable" />
+        </div>
+
+        <button type="submit">הוסף פריט</button>
+    </form>
+
+</div>
