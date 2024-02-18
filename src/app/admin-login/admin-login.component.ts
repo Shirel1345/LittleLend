@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { AppComponent } from '../app.component';
+import { Login } from '../login.interface';
+
 
 
 
@@ -30,10 +31,10 @@ import { AppComponent } from '../app.component';
 
 
 
-    FormsModule,
+
     MatIconModule,
     RouterModule,
-    FormsModule,
+
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -41,10 +42,7 @@ import { AppComponent } from '../app.component';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-
-
-
+    HttpClientModule
 
 
   ],
@@ -69,7 +67,7 @@ export class AdminLoginComponent {
   login() {
     const loginData = { username: this.username, password: this.password };
 
-    this.http.post('http://localhost:4200/login', loginData).subscribe(
+    this.http.post('http://localhost:3000/login', loginData).subscribe(
       (response: any) => {
         console.log('התחברות מוצלחת:', response.message);
         this.loginResponse = response; // שמירת התשובה במשתנה

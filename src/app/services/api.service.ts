@@ -2,20 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AdminLoginComponent } from '../admin-login/admin-login.component';
 import { Observable } from 'rxjs';
-import { ILogin } from '../login.interface';
+import { Login } from '../login.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  private apiUrl = 'http://localhost:3000'; // Replace with your server URL
+
 
   constructor(private http: HttpClient) { }
 
 
-  public getlogin(): Observable<ILogin> {
-
-    const url: string = "http://localhost:3000/login";
-    return this.http.get(url, {}) as Observable<ILogin>;
-
+  getlogin(): Observable<Login> {
+    return this.http.get<Login>(`${this.apiUrl}/ILogin`);
   }
+
+
 }
+
+
+
+
+
