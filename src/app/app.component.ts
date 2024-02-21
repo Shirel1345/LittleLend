@@ -7,8 +7,6 @@ import { AddItemComponent } from './add-item/add-item.component';
 
 import { FormsModule } from '@angular/forms';
 
-
-
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -28,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
         FormsModule,
 
 
+
     ],
+    providers: [HttpClientModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
 
@@ -36,3 +36,4 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppComponent {
     title = 'my-angular-project';
 }
+

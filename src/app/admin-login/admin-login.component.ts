@@ -1,7 +1,7 @@
 // admin-login.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,13 +11,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { Login } from '../login.interface';
+import { FormGroup } from '@angular/forms';
+
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 
 
@@ -29,12 +31,8 @@ import { Login } from '../login.interface';
   standalone: true,
   imports: [
 
-
-
-
     MatIconModule,
     RouterModule,
-
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -42,7 +40,8 @@ import { Login } from '../login.interface';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
 
 
   ],
@@ -53,35 +52,74 @@ import { Login } from '../login.interface';
   styleUrls: ['./admin-login.component.css'],
 
 })
-
-
-
-
 export class AdminLoginComponent {
-  username: string = '';
-  password: string = '';
-  loginResponse: any;
+  loginObj: login;
 
-  constructor(private http: HttpClient) { }
-
-  login() {
-    const loginData = { username: this.username, password: this.password };
-
-    this.http.post('http://localhost:3000/login', loginData).subscribe(
-      (response: any) => {
-        console.log('התחברות מוצלחת:', response.message);
-        this.loginResponse = response; // שמירת התשובה במשתנה
-        console.log('response:', response);
-
-      },
-      (error) => {
-        console.error('שגיאה במהלך התחברות:', error.error.message);
-        this.loginResponse = error; // שמירת התשובה במשתנה
+  constructor(private http: HttpClient, private router: Router) {
+    this.loginObj = new login();
+  }
+  onLogin() {
+    debugger;
+    this.http.post('http://localhost:3000/login', this.loginObj).subscribe((res: any) => {
+      if (res.result) {
+        alert("Login success")
+        this.router.navigateByUrl('/dashboard')
 
       }
-    );
+      else {
+        alert(res.massade)
+      }
+    })
+
   }
+
 }
 
 
 
+
+export class login {
+  email: string;
+  password: string;
+
+  constructor() {
+    this.email = '';
+    this.password = '';
+  }
+
+
+
+
+
+
+
+  // login: FormGroup;
+  // showError: boolean = false;
+
+  // constructor(private fb: FormBuilder, private http: HttpClient) {
+  //  this.login = this.fb.group({
+  //   Email: ['', [Validators.required, Validators.email]],
+  //   Password: ['', Validators.required]
+  // });
+}
+
+//submitLogin() {
+//  if (this.login.invalid) {
+
+//    this.showError = true;
+//   return;
+//  }
+
+// const serverUrl = 'http://localhost:3000';
+
+
+// שליחת הטופס לשרת
+//this.http.post(serverUrl, this.login.value).subscribe((response: any) => {
+//  console.log('Submit הושלם', response);
+
+
+// });
+// }
+
+
+// }

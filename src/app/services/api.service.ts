@@ -15,7 +15,7 @@ export class ApiService {
 
 
   getlogin(): Observable<Login> {
-    return this.http.get<Login>(`${this.apiUrl}/ILogin`);
+    return this.http.get<Login>(`${this.apiUrl}/login`);
   }
 
 

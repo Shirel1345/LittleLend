@@ -4,30 +4,35 @@
             <form class="login">
                 <h3 class="text-right"> התחברות מנהל </h3>
 
-
-
                 <div class="login__field">
                     <i class="login__icon fas fa-user"></i>
-                    <input ngModel name="username" class="login__input" placeholder="User name / Email"
-                        name="username" />
-                </div>
-                <div class="login__field">
 
-                    <i class="login__icon fas fa-lock"></i>
-                    <input class="login__input" placeholder="Password" name="password" ngModel="password" />
+
+                    <input type="email" [(ngModel)]="loginObj.email" name="Email" class="login__input"
+                        placeholder="Email" required />
                 </div>
+
+
+                <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+
+
+                    <input type="password" [(ngModel)]="loginObj.password" name="password" class="login__input"
+                        placeholder="Password" required />
+                </div>
+
+
                 <button class="button login__submit">
 
-                    <span class="button__text">Login</span>
-                    <i class="button__icon fas fa-chevron-right"></i>
+                    <span class="button__text" (click)="onLogin()">Log In Now</span>
+
+
                 </button>
             </form>
             <div class="social-login">
                 <h3></h3>
                 <div class="social-icons">
-                    <a href="#" class="social-login__icon fab fa-instagram"></a>
-                    <a href="#" class="social-login__icon fab fa-facebook"></a>
-                    <a href="#" class="social-login__icon fab fa-twitter"></a>
+
                 </div>
 
             </div>

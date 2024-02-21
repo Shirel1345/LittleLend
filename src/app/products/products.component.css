@@ -19,77 +19,21 @@
 }
 
 
-
-div.gallery {
-    border: 1px solid #ccc;
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
-}
-
-div.gallery img {
-    width: 100%;
-    height: auto;
-}
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.responsive {
-    padding: 0 6px;
-    float: left;
-    width: 24.99999%;
-}
-
-@media only screen and (max-width: 700px) {
-    .responsive {
-        width: 49.99999%;
-        margin: 6px 0;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .responsive {
-        width: 100%;
-    }
-}
-
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-body {
+.category-container {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #e7e5e5;
-    /* צבע רקע */
 }
 
-h1 {
-    font-family: 'Arial', sans-serif;
-    /* סוג גופן */
-    color: #ffffff;
-    /* צבע טקסט */
-    text-align: center;
-    /* מיישר למרכז האופקי */
-    padding: 20px;
-    /* ריווח מסביב לטקסט */
-    background-color: #878383;
-    /* צבע רקע של הכותרת */
-    border-radius: 10px;
-    /* פינות מעוגלות */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* צל לכותרת */
+.category-item {
+    margin: 10px;
+    /* יכול לשנות את המרווח בין הקטגוריות */
+}
+
+.category-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border: 1px solid rgb(126, 152, 247);
+    /* קו מעטפת עבור התמונה */
 }

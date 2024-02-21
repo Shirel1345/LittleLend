@@ -1,4 +1,7 @@
 <!-- בקובץ HTML -->
+
+
+
 <div class="header">
 
     <img class="logo" src="assets/image1.jpg" alt="My Logo">
@@ -6,59 +9,12 @@
 
 </div>
 <div>
-    <h1>קטגוריות מוצרים</h1>
+    <h5>קטגוריות מוצרים</h5>
 </div>
+<div class="category-container">
 
-
-
-
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="img_lights.jpg">
-            <img src="https://baby-smile.co.il/wp-content/uploads/2023/11/0012.jpg" alt="Northern Lights">
-        </a>
-        <div class="desc">מנשאים</div>
-    </div>
-</div>
-
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="img_mountains.jpg">
-            <img src="https://www.mybaby.co.il/media/catalog/product/cache/ed18b1cef59f6bcd01f5b38db46914c1/b/r/britax-highpoint-2-stage-belt-positioning-booster-car-seat-cool-flow-gray-11.jpg"
-                alt="Mountains">
-        </a>
-    </div>
-    <div class="desc">בטיחות</div>
-</div>
-
-
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="img_5terre.jpg">
-            <img src="https://www.segalbaby.co.il/wp-content/uploads/2021/05/7-300x300.png" alt="Cinque Terre">
-        </a>
-        <div class="desc">ריהוט</div>
-    </div>
-</div>
-
-
-
-
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="img_mountains.jpg">
-            <img src="https://cdn.shopify.com/s/files/1/0620/4109/6404/products/24-3035-3.jpg?v=1659012804"
-                alt="Mountains">
-        </a>
-        <div class="desc">שונות</div>
-    </div>
-</div>
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="img_forest.jpg">
-            <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61m09VaJ68L._AC_UF894,1000_QL80_.jpg"
-                alt="Forest">
-        </a>
-        <div class="desc">האכלה והנקה</div>
-    </div>
+    <a class="category-item" *ngFor="let category of categories" [routerLink]="['/products', category.id]">
+        <img class="category-image" src="{{ category.picture }}" alt="{{ category.name }}">
+        {{ category.name }}
+    </a>
 </div>
