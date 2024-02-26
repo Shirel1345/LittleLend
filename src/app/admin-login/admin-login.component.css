@@ -9,14 +9,19 @@
 
 body {
     background: linear-gradient(90deg, #C7C5F4, #42414d);
+    margin: auto;
+    /* הוסף את זה כדי להזיז למרכז המסך */
 
 }
 
 .container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    /* מרכז אופקי */
+    align-items: center;
+    /* מרכז אנכי */
+    height: 100vh;
+    /* גובה כולל של המסך */
 }
 
 .screen {
@@ -25,6 +30,10 @@ body {
     height: 600px;
     width: 360px;
     box-shadow: 0px 0px 24px #42414d;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    /* הוסף את זה כדי להזיז למרכז המסך */
 }
 
 .screen__content {

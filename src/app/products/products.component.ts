@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 
@@ -49,16 +50,23 @@ export class ProductsComponent {
 
   categories: { id: number, name: string, picture: string }[] = [
     { id: 1, name: 'ריהוט', picture: 'https://www.segalbaby.co.il/wp-content/uploads/2021/05/7-300x300.png' },
-    { id: 2, name: 'קטגוריה 2', picture: 'https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61m09VaJ68L._AC_UF894,1000_QL80_.jpg' },
-    { id: 3, name: 'קטגוריה 3', picture: 'https://baby-smile.co.il/wp-content/uploads/2023/11/0012.jpg' },
+    { id: 2, name: 'האכלה והנקה', picture: 'https://zuzu.deals/wp-content/uploads/2023/05/64648568dc1d45.35543072.jpg' },
+    { id: 3, name: 'מנשאים ', picture: 'https://baby-smile.co.il/wp-content/uploads/2023/11/0012.jpg' },
     { id: 4, name: ' בטיחות', picture: 'https://www.mybaby.co.il/media/catalog/product/cache/ed18b1cef59f6bcd01f5b38db46914c1/b/r/britax-highpoint-2-stage-belt-positioning-booster-car-seat-cool-flow-gray-11.jpg' },
     { id: 5, name: 'שונות', picture: 'https://cdn.shopify.com/s/files/1/0620/4109/6404/products/24-3035-3.jpg?v=1659012804' },
   ];
 
+  constructor(private router: Router) { }
 
-  navigateToCategory(link: string): void {
-    // כאן ניתן להוסיף התניות או לבצע פעולות נוספות כדי לנווט לדף המתאים
-    console.log('Navigating to category:', link);
+
+
+  navigateToCategory(categoryId: number): void {
+
+    if (categoryId == 1) {
+
+
+      this.router.navigate(['/home-page']);
+    }
   }
 }
 

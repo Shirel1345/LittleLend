@@ -3,18 +3,16 @@
 
 
 <div class="header">
-
     <img class="logo" src="assets/image1.jpg" alt="My Logo">
-
-
 </div>
-<div>
-    <h5>קטגוריות מוצרים</h5>
+
+<div class="category-title">
+    <h5 class="center">קטגוריות מוצרים</h5>
 </div>
+
 <div class="category-container">
-
-    <a class="category-item" *ngFor="let category of categories" [routerLink]="['/products', category.id]">
+    <a class="category-item" *ngFor="let category of categories" (click)="navigateToCategory(category.id)">
         <img class="category-image" src="{{ category.picture }}" alt="{{ category.name }}">
-        {{ category.name }}
+        <div class="category-name">{{ category.name }}</div>
     </a>
 </div>

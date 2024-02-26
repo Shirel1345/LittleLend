@@ -1,0 +1,9 @@
+<h2>מוצרים שהזמינו הלקוחות</h2>
+<ul>
+    <li *ngFor="let orderedProduct of orderedProducts">{{ orderedProduct.name }}</li>
+</ul>
+
+<h2>מוצרים שזמינים במלאי ולא נרכשו</h2>
+<ul>
+    <li *ngFor="let availableProduct of availableProducts">{{ availableProduct.name }}</li>
+</ul>

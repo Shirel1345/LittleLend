@@ -34,6 +34,42 @@
     width: 400px;
     height: 400px;
     object-fit: cover;
-    border: 1px solid rgb(126, 152, 247);
+    border: 1px solid rgb(14, 14, 14);
     /* קו מעטפת עבור התמונה */
+}
+
+.category-item {
+    text-align: center;
+}
+
+.category-name {
+    margin-top: 5px;
+    /* כדי להבדיל את התמונה מהטקסט */
+    font-size: 20px;
+    /* גודל פונט */
+    font-weight: bold;
+
+}
+
+.category-image {
+    transition: filter 0.3s ease;
+}
+
+.category-image:hover {
+    filter: brightness(0.8);
+
+}
+
+.category-title {
+    text-align: center;
+    margin-bottom: 20px;
+    /* יש מרווח נוסף בין הכותרת לרשימת הקטגוריות */
+}
+
+.center {
+    font-size: 50px;
+    /* גודל גופן גדול יותר */
+    color: #474747;
+    font-weight: bold;
+
 }
