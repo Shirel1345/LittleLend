@@ -1,7 +1,3 @@
-/* add-item.component.css */
-
-
-
 .form-group {
     text-align: center;
 }
@@ -36,7 +32,7 @@ form {
 h2 {
     color: rgb(72, 72, 72);
     font-size: 40px;
-    /* גודל הכתב החדש */
+
     text-align: center;
 }
 
@@ -60,18 +56,18 @@ mat-form-field {
 
 }
 
-/* הגדרת סגנון ל-label */
+
 .mat-form-field-label {
     background-color: #ce2020;
-    /* צבע רקע */
+
     padding: 0 4px;
-    /* יכול להיות טוב להוסיף מעט ריפוד לסביבת ה-label */
+
     margin-left: 4px;
-    /* הזזה קטנה משמאל */
+
     text-align: right;
 }
 
-/* הזזת ה-input לצד ימין */
+
 .mat-form-field .mat-form-field-flex input {
     text-align: right;
 }
@@ -82,16 +78,16 @@ button {
     margin-top: 10px;
     display: flex;
     flex-direction: column-reverse;
-    /* שינוי להצגת הטקסט מעל לכפתור */
+
     align-items: flex-end;
     text-align: center;
 }
 
 
-/* אם ברצונך שהאייקון יהיה מרובע (מראה דוגמה) */
+
 .bird-icon img {
     width: 150px;
     height: 50px;
     object-fit: cover;
-    /* או object-fit: contain; כפי שרצוי */
+
 }

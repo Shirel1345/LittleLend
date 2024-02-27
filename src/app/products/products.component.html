@@ -11,8 +11,8 @@
 </div>
 
 <div class="category-container">
-    <a class="category-item" *ngFor="let category of categories" (click)="navigateToCategory(category.id)">
+    <div class="category-item" *ngFor="let category of categories" (click)="navigateToCategory(category.id)">
         <img class="category-image" src="{{ category.picture }}" alt="{{ category.name }}">
         <div class="category-name">{{ category.name }}</div>
-    </a>
+    </div>
 </div>

@@ -1,0 +1,93 @@
+.form-group {
+    text-align: center;
+}
+
+.button-group {
+    text-align: center;
+}
+
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    border: rgb(212, 44, 44);
+    border-radius: 5px;
+    background-color: rgb(232, 232, 232);
+    color: black;
+    text-align: center;
+}
+
+form {
+    width: 400px;
+    border: 1px solid #5d5b5b;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: rgb(0, 0, 0);
+    text-align: right;
+
+}
+
+h2 {
+    color: rgb(72, 72, 72);
+    font-size: 40px;
+
+    text-align: center;
+}
+
+
+
+mat-form-field {
+    width: 100%;
+    text-align: right;
+
+
+}
+
+.custom-textarea {
+    color: rgb(2, 2, 2);
+    text-align: right;
+}
+
+
+.form-group {
+    text-align: right;
+
+}
+
+/* הגדרת סגנון ל-label */
+.mat-form-field-label {
+    background-color: #ce2020;
+
+    padding: 0 4px;
+
+    margin-left: 4px;
+
+    text-align: right;
+}
+
+
+.mat-form-field .mat-form-field-flex input {
+    text-align: right;
+}
+
+
+
+button {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+
+    align-items: flex-end;
+    text-align: center;
+}
+
+
+
+.bird-icon img {
+    width: 150px;
+    height: 50px;
+    object-fit: cover;
+
+}

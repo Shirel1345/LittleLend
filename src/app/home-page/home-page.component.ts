@@ -48,7 +48,7 @@ export class HomePageComponent {
   }
   shouldShowAdminLogin: boolean = false;
 
-  // פונקציה זו תופעל בעת לחיצה על הכפתור
+
   showAdminLogin() {
     this.shouldShowAdminLogin = true;
   }

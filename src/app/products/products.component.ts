@@ -62,11 +62,7 @@ export class ProductsComponent {
 
   navigateToCategory(categoryId: number): void {
 
-    if (categoryId == 1) {
-
-
-      this.router.navigate(['/home-page']);
-    }
+    this.router.navigate(['/products', categoryId]);
   }
 }
 
