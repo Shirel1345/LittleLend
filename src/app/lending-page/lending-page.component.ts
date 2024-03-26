@@ -11,6 +11,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-lending-page',
@@ -23,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './lending-page.component.html',
   styleUrls: ['./lending-page.component.css'], // השנוי כאן, נכנסת לקובץ CSS ולא styleUrl
@@ -55,7 +57,6 @@ export class LendingPageComponent {
 
     return null;
   }
-
   onSubmit(form: FormGroup): void {
     if (form.valid) {
       // Your form submission logic here

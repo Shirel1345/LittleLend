@@ -1,0 +1,4 @@
+<h2>All Categories</h2>
+<div *ngFor="let category of categories" (click)="navigateToProducts(category.id)">
+  {{ category.name }}
+</div>

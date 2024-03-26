@@ -31,13 +31,11 @@
 
     <div>
       <mat-form-field>
-        <label for="securityDeposit">אפשרויות פיקדון:</label>
-        <select matNativeControl formControlName="depositOptions" required>
-          <option value="מזומן">מזומן</option>
-          <option value="ביט">ביט</option>
-          <option value="העברה בנקאית">העברה בנקאית</option>
-          <option value="צ'ק">צ'ק</option>
-        </select>
+        <label for="returnDate">תאריך החזרה:</label>
+        <input matInput [matDatepicker]="returnPicker" id="returnDate" name="returnDate"
+          formControlName="returnLoanDate" required />
+        <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+        <mat-datepicker #returnPicker></mat-datepicker>
       </mat-form-field>
     </div>
 
