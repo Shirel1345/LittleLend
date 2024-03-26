@@ -1,0 +1,117 @@
+<div>
+  <div class="header">
+    <h2>השאלה חדשה</h2>
+    <div class="bird-icon">
+      <img src="assets/baby-bird.png" alt="Bird Icon" />
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="product-name">
+      <p>שם המוצר : {{ productName }}</p>
+    </div>
+    <form [formGroup]="loanForm" class="lending-form">
+      <div class="container">
+        <div class="form-field">
+          <label class="date-label" for="startDate">תאריך השאלה:</label>
+          <p-calendar
+            class="custom-calendar"
+            dateFormat="dd.mm.yy"
+            id="startDate"
+            type="date"
+            (onSelect)="select($event)"
+            [minDate]="today"
+            pInputText
+            formControlName="startDate"
+            [ngClass]="{
+              'invalid-input':
+                loanForm.controls['startDate'].invalid &&
+                loanForm.controls['startDate'].touched
+            }"
+          ></p-calendar>
+        </div>
+
+        <div class="form-field">
+          <label class="date-label" for="endDate">תאריך החזרה:</label>
+          <p-calendar
+            class="custom-calendar"
+            id="endDate"
+            pInputText
+            dateFormat="dd.mm.yy"
+            [minDate]="loanForm.controls.startDate.value || today"
+            formControlName="endDate"
+            [ngClass]="{
+              'invalid-input':
+                loanForm.controls['endDate'].invalid &&
+                loanForm.controls['endDate'].touched
+            }"
+          ></p-calendar>
+        </div>
+
+        <p-floatLabel>
+          <input
+            class="form-field"
+            id="userId"
+            type="text"
+            pInputText
+            formControlName="userId"
+            [ngClass]="{
+              'invalid-input':
+                loanForm.controls['userId'].invalid &&
+                loanForm.controls['userId'].touched
+            }"
+          />
+          <label for="userId">תעודת זהות</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input
+            class="form-field"
+            id="phone"
+            type="tel"
+            pInputText
+            formControlName="phone"
+            [ngClass]="{
+              'invalid-input':
+                loanForm.controls['phone'].invalid &&
+                loanForm.controls['phone'].touched
+            }"
+          />
+          <label for="phone">מספר טלפון</label>
+        </p-floatLabel>
+
+        <p-dropdown
+          class="form-field"
+          [options]="paymentsMethods"
+          formControlName="paymentMethod"
+          inputId="paymentMethod"
+          optionLabel="name"
+          optionValue="code"
+          placeholder="בחר שיטת תשלום"
+          [ngClass]="{
+            'invalid-input':
+              loanForm.controls['paymentMethod'].invalid &&
+              loanForm.controls['paymentMethod'].touched
+          }"
+        ></p-dropdown>
+
+        <div class="actions">
+          <button
+            pButton
+            (click)="onSubmit()"
+            [label]="'צור השאלה'"
+            class="form-button"
+            [ngClass]="{ 'button-invalid': loanForm.invalid }"
+            [disabled]="loanForm.invalid"
+          ></button>
+          <button
+            pButton
+            label="בטל"
+            (click)="cancel()"
+            class="form-button cancel"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="filter-sort-container">
+  <span class="p-input-icon-left search-field">
+    <i class="pi pi-search"></i>
+    <input
+      type="text"
+      style="width: 100%"
+      placeholder="חפש לפי שם"
+      (input)="filterCategories()"
+      pInputText
+      [(ngModel)]="filterQuery"
+    />
+  </span>
+
+  <div class="add-item">
+    <button
+      (click)="createCategory()"
+      mat-raised-button
+      color="primary"
+      type="submit"
+    >
+      הוסף קטגוריה
+    </button>
+  </div>
+</div>
+
+<div class="product-grid">
+  <mat-card class="product-card" *ngFor="let category of filteredCategories">
+    <mat-card-header>
+      <mat-card-title>{{ category.name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      class="mat-card-image"
+      [src]="category.picture"
+      alt="{{ category.name }}"
+    />
+
+    <mat-card-actions>
+      <div class="actions">
+        <p-button
+          [label]="'עריכה'"
+          (click)="editCategory(category)"
+          severity="secondry"
+        >
+        </p-button>
+
+        <p-button
+          [label]="'מחיקה'"
+          (click)="deleteCategory(category.id)"
+          severity="danger"
+        >
+        </p-button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,160 @@
+.filter-sort-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  direction: rtl;
+  height: 10%;
+  align-items: center;
+}
+
+.search-field {
+  flex: 0 1 70%;
+  justify-content: center;
+  display: flex;
+  height: 2.5rem;
+}
+
+.sort-field {
+  flex: 0 1 30%;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 16px;
+  direction: rtl;
+  font-family: "Courier New", Courier, monospace;
+  overflow: auto;
+  height: 77%;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-image {
+  height: 150px;
+  object-fit: contain;
+  width: 100%;
+}
+
+mat-card-content {
+  font-size: 0.9rem;
+  flex-grow: 1;
+  margin-top: 1rem;
+
+  h2 {
+    color: red;
+  }
+}
+
+.unavailable-product {
+  background-color: #f0f0f0;
+  color: #ccc;
+}
+
+.unavailable-product {
+  mat-card-image {
+    opacity: 0.5;
+  }
+}
+
+h2 {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.unavailable-product mat-card-actions {
+  display: none;
+}
+
+.only-new{
+  color: red;
+  text-align: center;
+}
+
+mat-card-actions {
+  display: block;
+
+  h4 {
+    text-align: center;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+  }
+}
+
+.mat-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  margin-top: auto;
+}
+
+mat-icon {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.app-footer {
+  padding: 20px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.logo {
+  height: -webkit-fill-available;
+  cursor: pointer;
+}
+
+.no-rating{
+  text-align: center;
+  margin: 1rem auto;
+  color: #5F97F2;
+}
+
+.rate{
+  justify-content: center;
+  display: flex;
+}
+
+:host ::ng-deep {
+  p-dropdown {
+    width: 100%;
+    .p-dropdown {
+      width: 100%;
+    }
+  }
+  p-rating {
+    margin: 1rem auto;
+  }
+}

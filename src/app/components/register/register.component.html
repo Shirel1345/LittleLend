@@ -1,0 +1,76 @@
+<div class="register-wrapper">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <div class="logo">
+        <img src="assets/logo.jpg" alt="Application Logo" class="logo-image" />
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2 class="title">הרשמה</h2>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="custom-form-field">
+          <input
+            type="text"
+            id="userId"
+            formControlName="userId"
+            placeholder=" "
+          />
+          <label for="userId">תעודת זהות</label>
+        </div>
+        <div class="custom-form-field">
+          <input
+            type="tel"
+            id="phone"
+            formControlName="phone"
+            placeholder=" "
+          />
+          <label for="phone">טלפון</label>
+        </div>
+
+        <div class="custom-form-field">
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder=" "
+          />
+          <label for="password">סיסמה</label>
+        </div>
+
+        <div class="custom-form-field">
+          <input
+            type="password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder=" "
+          />
+          <label for="confirmPassword">אשר סיסמה</label>
+        </div>
+
+        <mat-card-actions>
+          <p class="register-hyper" routerLink="/login">
+            יש לך כבר משתמש ? להתחברות
+          </p>
+          <p *ngIf="errorMessage" class="faild-register">{{ errorMessage }}</p>
+          <div
+            *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.touched"
+            class="error-message"
+          >
+            הסיסמאות לא תואמות
+          </div>
+          <div
+            *ngIf="registerForm.controls['phone'].errors?.['invalidPhoneNumber'] && registerForm.controls['phone'].touched"
+            class="error-message"
+          >
+            מספר טלפון לא תקין
+          </div>
+          <p-button [disabled]="!registerForm.valid" type="submit"
+            >צור משתמש</p-button
+          >
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

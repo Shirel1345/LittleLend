@@ -1,0 +1,14 @@
+<div class="background-container">
+  <div (click)="logout()" class="logout">
+    <i class="pi pi-sign-out"> </i>
+  </div>
+  <div class="content">
+    <form>
+      <div><img class="logo" src="assets/logo.jpg" alt="לוגו" /></div>
+      <h3>אתר זה מציע מגוון רחב של מוצרי תינוקות להשאלה בעלות סמלית</h3>
+      <button routerLink="/categories">הצגת מוצרים</button>
+      <button (click)="myLoans()">ההשאלות שלי</button>
+      <button *ngIf="isAdmin()" routerLink="/dashboard">ממשק מנהל</button>
+    </form>
+  </div>
+</div>

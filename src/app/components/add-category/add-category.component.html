@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="bird-icon">
+    <img src="assets/logo.jpg" alt="Bird Icon" />
+  </div>
+  <h2>{{ label }}</h2>
+  <div class="lending-form">
+    <div class="container">
+      <p-floatLabel>
+        <input
+          class="form-field"
+          id="name"
+          type="text"
+          pInputText
+          [formControl]="name"
+          [ngClass]="{
+            'invalid-input': name.invalid && name.touched
+          }"
+        />
+        <label for="name">שם קטגוריה</label>
+      </p-floatLabel>
+
+      <p-fileUpload
+        *ngIf="!hasImage"
+        name="image"
+        mode="advanced"
+        chooseLabel="בחר תמונה"
+        accept="image/*"
+        [multiple]="false"
+        [maxFileSize]="2000000"
+        [showUploadButton]="false"
+        [showCancelButton]="false"
+        [cancelLabel]="'בטל'"
+        [customUpload]="true"
+        (onSelect)="onUpload($event)"
+        #uploader
+      >
+      </p-fileUpload>
+
+      <div class="image-content" *ngIf="hasImage">
+        <img [src]="category?.picture" />
+        <button (click)="deletePicture()">
+          <i class="pi pi-times"></i>
+        </button>
+      </div>
+
+      <div class="actions">
+        <button
+          pButton
+          (click)="onSubmit()"
+          [label]="submitLabel"
+          class="form-button"
+          [loading]="loading"
+          [ngClass]="{
+            'button-invalid': name.invalid || (!hasImage && !image)
+          }"
+          [disabled]="name.invalid || (!hasImage && !image)"
+        ></button>
+        <button
+          pButton
+          label="בטל"
+          (click)="cancel()"
+          class="form-button cancel"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

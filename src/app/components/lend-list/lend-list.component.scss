@@ -1,0 +1,147 @@
+.loans-table-container {
+  direction: rtl;
+  height: 100%;
+}
+
+.filter-sort-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  direction: rtl;
+}
+
+.search-field {
+  flex: 0 1 70%;
+  justify-content: center;
+  display: flex;
+  height: 15%;
+}
+
+.sort-field {
+  flex: 0 1 30%;
+}
+
+.app-footer {
+  padding: 10px;
+  background-color: #f5f5f5;
+  text-align: center;
+  height: 7%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.pending {
+  color: rgb(207, 169, 0);
+}
+
+.reject {
+  color: rgb(245, 12, 12);
+}
+
+.approved {
+  color: rgb(8, 177, 31);
+}
+
+.loan-status {
+  display: flex;
+  margin: auto;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.rate-link {
+  color: blue;
+  cursor: pointer;
+  text-align: center;
+}
+
+.overlay-rate {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+
+:host ::ng-deep {
+  .p-datatable > .p-datatable-wrapper {
+    overflow: auto;
+    height: 84%;
+  }
+
+ 
+
+  p-dropdown {
+    width: 100%;
+    .p-dropdown {
+      width: 100%;
+    }
+  }
+
+  p-table {
+    height: 84%;
+    display: flex;
+  }
+
+  .loans-table-container .p-datatable.p-datatable-gridlines {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    width: 100%;
+  }
+
+  .p-datatable .p-datatable-tbody > tr > td {
+    text-align: right;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    padding: 1rem 1rem;
+    direction: rtl;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    text-align: right;
+    padding: 1rem 1rem;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    font-weight: 600;
+    color: #495057;
+    background: #f8f9fa;
+    transition: box-shadow 0.2s;
+  }
+
+  .loans-table-container .p-datatable.p-datatable-gridlines {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+
+    .p-datatable-thead > tr > th {
+      background-color: #f8f9fa;
+      color: #495057;
+      font-weight: bold;
+      border-bottom: 2px solid #dee2e6;
+      padding: 0.75rem;
+    }
+
+    .p-datatable-tbody > tr > td {
+      padding: 0.75rem; /* Padding for body cells */
+      border-top: 1px solid #dee2e6; /* Light grey border for cells */
+    }
+
+    .p-paginator {
+      padding: 0.5rem 0; /* Padding around the paginator */
+      justify-content: center; /* Center the paginator */
+      .p-paginator-pages .p-paginator-page {
+        border-color: #007bff; /* Paginator buttons border color */
+        color: #007bff; /* Paginator buttons text color */
+      }
+      .p-paginator-page.p-highlight {
+        background-color: #007bff; /* Active page background color */
+        color: #ffffff; /* Active page text color */
+      }
+    }
+  }
+}

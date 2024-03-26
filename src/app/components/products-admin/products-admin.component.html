@@ -1,0 +1,56 @@
+<div class="filter-sort-container">
+  <span class="p-input-icon-left search-field">
+    <i class="pi pi-search"></i>
+    <input
+      type="text"
+      style="width: 100%"
+      placeholder="חפש לפי שם"
+      (input)="filterProducts()"
+      pInputText
+      [(ngModel)]="filterQuery"
+    />
+  </span>
+
+  <div class="add-item">
+    <button
+      (click)="createProduct()"
+      mat-raised-button
+      color="primary"
+      type="submit"
+    >
+      הוסף פריט
+    </button>
+  </div>
+</div>
+
+<div class="product-grid">
+  <mat-card class="product-card" *ngFor="let product of filteredProducts">
+    <mat-card-header>
+      <mat-card-title>{{ product.name }}</mat-card-title> 
+      <!-- | slice : 0 : 50  -->
+    </mat-card-header>
+    <img
+      class="mat-card-image"
+      [src]="product.picture"
+      alt="{{ product.name }}"
+    />
+    <mat-card-content>
+      <p>{{ product.description | slice : 0 : 50 }}...</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <h4>סכום פיקדון: {{ product.securityDepositRate }} ש"ח</h4>
+      <div class="actions">
+        <button mat-stroked-button (click)="editProduct(product)" color="primary">
+          ערוך
+        </button>
+        <button
+          mat-stroked-button
+          (click)="deleteProduct(product.id)"
+          color="secondry"
+        >
+          מחיקה
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="bird-icon">
+    <img src="assets/logo.jpg" alt="Bird Icon" />
+  </div>
+  <h2>{{ label }}</h2>
+  <form [formGroup]="lendingForm" class="lending-form">
+    <div class="container">
+      <p-dropdown
+        class="form-field"
+        [options]="categories"
+        formControlName="category"
+        inputId="category"
+        optionLabel="name"
+        optionValue="id"
+        placeholder="בחר קטגוריה"
+        [ngClass]="{
+          'invalid-input':
+            lendingForm.controls['category'].invalid &&
+            lendingForm.controls['category'].touched
+        }"
+      ></p-dropdown>
+
+      <p-floatLabel>
+        <input
+          class="form-field"
+          id="name"
+          type="text"
+          pInputText
+          formControlName="name"
+          [ngClass]="{
+            'invalid-input':
+              lendingForm.controls['name'].invalid &&
+              lendingForm.controls['name'].touched
+          }"
+        />
+        <label for="name">שם המוצר</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <textarea
+          class="form-field"
+          id="description"
+          pInputTextarea
+          formControlName="description"
+          [ngClass]="{
+            'invalid-input':
+              lendingForm.controls['description'].invalid &&
+              lendingForm.controls['description'].touched
+          }"
+        ></textarea>
+        <label for="description">תיאור</label>
+      </p-floatLabel>
+
+      <!-- <p-floatLabel>
+        <input
+          class="form-field"
+          id="picture"
+          type="url"
+          pInputText
+          formControlName="picture"
+          [ngClass]="{
+            'invalid-input':
+              lendingForm.controls['picture'].invalid &&
+              lendingForm.controls['picture'].touched
+          }"
+        />
+        <label for="picture">קישור לתמונה</label>
+      </p-floatLabel> -->
+
+      <p-fileUpload
+        *ngIf="!hasImage"
+        name="image"
+        mode="advanced"
+        chooseLabel="בחר תמונה"
+        accept="image/*"
+        [multiple]="false"
+        [maxFileSize]="2000000"
+        [showUploadButton]="false"
+        [showCancelButton]="false"
+        [cancelLabel]="'בטל'"
+        [customUpload]="true"
+        (onSelect)="onUpload($event)"
+        #uploader
+      >
+      </p-fileUpload>
+
+      <div class="image-content" *ngIf="hasImage">
+        <img [src]="product?.picture" />
+        <button (click)="deletePicture()">
+          <i class="pi pi-times"></i>
+        </button>
+      </div>
+
+      <div class="numbers">
+        <p-floatLabel>
+          <input
+            class="form-field"
+            id="securityDepositRate"
+            type="number"
+            [min]="0"
+            pInputText
+            formControlName="securityDepositRate"
+            [ngClass]="{
+              'invalid-input':
+                lendingForm.controls['securityDepositRate'].invalid &&
+                lendingForm.controls['securityDepositRate'].touched
+            }"
+          />
+          <label for="securityDepositRate">סכום פיקדון</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input
+            class="form-field"
+            id="quantity"
+            type="number"
+            pInputText
+            formControlName="quantity"
+            [min]="0"
+            [ngClass]="{
+              'invalid-input':
+                lendingForm.controls['quantity'].invalid &&
+                lendingForm.controls['quantity'].touched
+            }"
+          />
+          <label for="quantity">כמות מלאי</label>
+        </p-floatLabel>
+      </div>
+      <div class="is-returnable">
+        <p>האם המוצר ניתן להחזרה?</p>
+        <p-inputSwitch formControlName="isReturnable"></p-inputSwitch>
+      </div>
+
+      <div class="actions">
+        <button
+          pButton
+          (click)="onSubmit()"
+          [label]="submitLabel"
+          class="form-button"
+          [loading]="loading"
+          [ngClass]="{
+            'button-invalid': lendingForm.invalid || (!hasImage && !image)
+          }"
+          [disabled]="lendingForm.invalid || (!hasImage && !image)"
+        ></button>
+        <button
+          pButton
+          label="בטל"
+          (click)="cancel()"
+          class="form-button cancel"
+        ></button>
+      </div>
+    </div>
+  </form>
+</div>

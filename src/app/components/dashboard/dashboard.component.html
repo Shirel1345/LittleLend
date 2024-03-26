@@ -1,0 +1,52 @@
+<!-- <div class="header">
+  <div class="options-title">
+    <div class="select">
+      <mat-select [(value)]="screenOption" (selectionChange)="changeScreen()">
+        <mat-option value="השאלות">השאלות</mat-option>
+        <mat-option value="עריכת מוצרים">עריכת מוצרים</mat-option>
+      </mat-select>
+    </div>
+    <div class="title">
+      <p>{{ screenOption }}</p>
+    </div>
+  </div>
+  <img class="logo" src="assets/logo.jpg" alt="My Logo" />
+</div> -->
+
+<p-tabView [scrollable]="true" dir="rtl">
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <i class="pi pi-inbox"></i>
+      <span>אישור השאלות</span>
+    </ng-template>
+    <div class="products-container">
+      <app-lend-list></app-lend-list>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <i class="pi pi-file-edit"></i>
+      <span>ניהול מוצרים</span>
+    </ng-template>
+    <div class="products-container">
+      <app-products-admin></app-products-admin>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <i class="pi pi-hashtag"></i>
+      <span>ניהול קטגוריות</span>
+    </ng-template>
+    <div class="products-container">
+      <app-categories-admin></app-categories-admin>
+    </div>
+  </p-tabPanel>
+</p-tabView>
+<!-- 
+<div class="products-container">
+  <app-products-admin *ngIf="isProductsAdmin"></app-products-admin>
+  <app-lend-list *ngIf="isLendings"></app-lend-list>
+</div> -->
+<footer class="app-footer">
+  <button mat-button routerLink="/">חזור לתפריט ראשי</button>
+</footer>

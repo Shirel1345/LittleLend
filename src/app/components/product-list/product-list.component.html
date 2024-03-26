@@ -1,0 +1,98 @@
+<div class="filter-sort-container">
+  <img
+    routerLink="/"
+    [pTooltip]="'חזרה לדף הבית'"
+    tooltipPosition="bottom"
+    class="logo"
+    src="assets/logo.jpg"
+    alt="My Logo"
+  />
+  <span class="p-input-icon-left search-field">
+    <i class="pi pi-search"></i>
+    <input
+      type="text"
+      style="width: 100%"
+      placeholder="חפש לפי שם"
+      (input)="filterProducts()"
+      pInputText
+      [(ngModel)]="filterQuery"
+    />
+  </span>
+
+  <div class="sort-field">
+    <p-dropdown
+      class="form-field"
+      [options]="sortOptions"
+      [(ngModel)]="sortOption"
+      optionLabel="name"
+      optionValue="code"
+      placeholder="מיין"
+      (onChange)="sortProducts()"
+    ></p-dropdown>
+  </div>
+</div>
+
+<div class="product-grid">
+  <mat-card
+    class="product-card"
+    *ngFor="let product of filteredProducts"
+    [ngClass]="{ 'unavailable-product': product.quantity === 0 }"
+  >
+    <mat-card-header>
+      <mat-card-title>{{ product.name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      class="mat-card-image"
+      [src]="product.picture"
+      alt="{{ product.name }}"
+    />
+    <mat-card-content>
+      <p *ngIf="product.quantity !== 0">
+        {{ product.description | slice : 0 : 50 }}...
+      </p>
+      <h2 *ngIf="product.quantity === 0">מוצר זה אינו זמין במלאי כרגע</h2>
+    </mat-card-content>
+    <p class="only-new" *ngIf="!product.isReturnable">
+      מוצר זה ניתן להחזיר רק חדש
+    </p>
+    <div class="rate" *ngIf="product.quantity !== 0">
+      <p-rating
+        *ngIf="product.rates ? product.rates.length > 0 : false"
+        [(ngModel)]="rates[product.id || 0]"
+        [readonly]="true"
+        [cancel]="false"
+      ></p-rating>
+      <p
+        class="no-rating"
+        *ngIf="product.rates ? product.rates.length === 0 : true"
+      >
+        לא ניתנו דירוגים למוצר זה עדיין
+      </p>
+    </div>
+    <mat-card-actions>
+      <h4 *ngIf="product.quantity !== 0">
+        סכום פיקדון: {{ product.securityDepositRate }} ש"ח
+      </h4>
+      <div class="actions">
+        <button
+          (click)="createLending(product)"
+          mat-stroked-button
+          color="primary"
+        >
+          השאל
+        </button>
+        <button
+          (click)="openDetail(product)"
+          mat-stroked-button
+          color="secondry"
+        >
+          פרטים
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<footer class="app-footer">
+  <button mat-button routerLink="/categories">חזור לקטגוריה אחרת</button>
+</footer>

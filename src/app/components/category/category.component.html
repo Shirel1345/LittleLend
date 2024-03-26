@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="category-title">
+    <p class="center">קטגוריות מוצרים</p>
+    <img routerLink="/" class="logo" src="assets/logo.jpg" alt="My Logo" />
+  </div>
+</div>
+
+<div class="category-container">
+  <div
+    class="category-item"
+    *ngFor="let category of categories"
+    (click)="navigateToProducts(category.id ? category.id : '')"
+  >
+    <img
+      class="category-image"
+      src="{{ category.picture }}"
+      alt="{{ category.name }}"
+    />
+    <div class="category-name">{{ category.name }}</div>
+  </div>
+</div>
+
+<footer class="app-footer">
+  <button mat-button routerLink="/">חזור לתפריט ראשי</button>
+</footer>

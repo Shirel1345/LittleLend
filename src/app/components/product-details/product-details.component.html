@@ -1,0 +1,25 @@
+<mat-card class="product-card">
+  <mat-card-header>
+    <mat-card-title>{{ product?.name }}</mat-card-title>
+    <mat-card-subtitle>קטגוריה: {{ product?.categoryName }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    class="product-image"
+    [src]="product?.picture"
+    alt="{{ product?.name }}"
+  />
+  <mat-card-content>
+    <p>{{ product?.description }}</p>
+    <p-rating
+      *ngIf="rate"
+      [(ngModel)]="rate"
+      [readonly]="true"
+      [cancel]="false"
+    ></p-rating>
+    <p class="no-rating" *ngIf="!rate">לא ניתנו דירוגים למוצר זה עדיין</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="close()" mat-button>סגור</button>
+  </mat-card-actions>
+</mat-card>

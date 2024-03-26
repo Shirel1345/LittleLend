@@ -1,0 +1,94 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 16px;
+  direction: rtl;
+  height: 76%;
+  font-family: "Courier New", Courier, monospace;
+  overflow: auto;
+}
+
+.filter-sort-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  direction: rtl;
+  height: 10%;
+
+  .search-field {
+    flex: 0 1 70%;
+    height: fit-content;
+  }
+
+  .add-item {
+    flex: 0 1 30%;
+    justify-content: center;
+    display: flex;
+
+    button {
+      width: 70%;
+    }
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  //max-height: 400px;
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-image {
+  height: 150px;
+  object-fit: contain;
+  width: 100%;
+}
+
+mat-card-content {
+  font-size: 0.9rem;
+  flex-grow: 1;
+  margin-top: 1rem;
+}
+
+mat-card-actions {
+  display: block;
+
+  h4{
+    text-align: center;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+  }
+}
+
+.mat-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  margin-top: auto; /* Push footer to bottom */
+}
+
+mat-icon {
+  font-size: 20px; /* Smaller icons */
+  height: 20px;
+  width: 20px;
+}

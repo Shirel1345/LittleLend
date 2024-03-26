@@ -1,12 +1,12 @@
 export interface Product {
-  id: number;
+  id?: string;
   name: string;
+  description: string;
   picture: string;
-  //   brand: string;
-  //   description: string;
-  //   age_range: string;
-  //   securityDepositRate: number;
-  //   borrowLendIndicator: number;
-  //   listedDate: string;
-  //   isAvailable: number;
+  category: string;
+  categoryName: number;
+  isReturnable: boolean;
+  quantity: number;
+  securityDepositRate: number;
+  rates?: number[];
 }

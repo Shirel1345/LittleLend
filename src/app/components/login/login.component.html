@@ -1,0 +1,45 @@
+<div class="login-wrapper">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <div class="logo">
+        <img src="assets/logo.jpg" alt="Application Logo" class="logo-image" />
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2 class="title">התחברות</h2>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="custom-form-field">
+          <input
+            type="text"
+            id="userId"
+            formControlName="userId"
+            placeholder=" "
+          />
+          <label for="userId">תעודת זהות</label>
+        </div>
+
+        <div class="custom-form-field">
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder=" "
+          />
+          <label for="password">סיסמה</label>
+        </div>
+        <mat-card-actions>
+          <p class="reset-hyper"  routerLink="/reset">
+            שכחתי סיסמה
+          </p>
+          <p class="register-hyper" routerLink="/register">
+            אין לך משתמש? להרשמה
+          </p>
+          <button type="submit">התחבר</button>
+          <p class="faild-login">{{ errorMessage }}</p>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

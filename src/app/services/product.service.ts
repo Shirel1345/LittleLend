@@ -3,22 +3,59 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../model/product.model';
-import { Category } from '../model/category.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3000'; // Replace with your server URL
-
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.apiUrl}/categories`);
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.baseUrl}/products`);
   }
 
-  getProductsByCategoryId(categoryId: number): Observable<Category> {
-    console.log(categoryId);
-    return this.http.get<Category>(`${this.apiUrl}/categories/${categoryId}`);
+  getProductsByCategoryId(categoryId: string): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      `${environment.baseUrl}/products/${categoryId}`
+    );
+  }
+
+  create(product: Product, file: File): Observable<Product> {
+    const formData = new FormData();
+    formData.append('image', file, file.name);
+    formData.append('name', product.name);
+    formData.append('category', product.category.toString());
+    formData.append('description', product.description);
+    formData.append('isReturnable', product.isReturnable.toString());
+    formData.append('quantity', product.quantity.toString());
+    formData.append(
+      'securityDepositRate',
+      product.securityDepositRate.toString()
+    );
+    return this.http.post<Product>(`${environment.baseUrl}/products`, formData);
+  }
+
+  update(product: Product, file?: File): Observable<Product> {
+    const formData = new FormData();
+    if (file) formData.append('image', file, file.name);
+    else formData.append('picture', product.picture);
+    formData.append('name', product.name);
+    formData.append('category', product.category.toString());
+    formData.append('description', product.description);
+    formData.append('isReturnable', product.isReturnable.toString());
+    formData.append('quantity', product.quantity.toString());
+    formData.append(
+      'securityDepositRate',
+      product.securityDepositRate.toString()
+    );
+    return this.http.put<Product>(
+      `${environment.baseUrl}/products/${product.id}`,
+      formData
+    );
+  }
+
+  delete(productId: string): Observable<any> {
+    return this.http.delete(`${environment.baseUrl}/products/${productId}`);
   }
 }

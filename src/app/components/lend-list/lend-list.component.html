@@ -1,0 +1,131 @@
+<div class="loans-table-container">
+  <div class="filter-sort-container">
+    <span class="p-input-icon-left search-field">
+      <i class="pi pi-search"></i>
+      <input
+        type="text"
+        style="width: 100%"
+        placeholder="חפש לפי תעודת זהות"
+        pInputText
+        [(ngModel)]="filterQuery"
+        (input)="filterLoans()"
+      />
+    </span>
+
+    <div class="sort-field">
+      <p-dropdown
+        class="form-field"
+        [options]="sortOptions"
+        [(ngModel)]="sortOption"
+        optionLabel="name"
+        optionValue="code"
+        placeholder="מיין"
+        (onChange)="sortProducts()"
+      ></p-dropdown>
+    </div>
+  </div>
+
+  <p-table
+    [value]="filteredLoans"
+    [paginator]="true"
+    [loading]="loading"
+    [rows]="10"
+    styleClass="p-datatable-gridlines table"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>מספר</th>
+        <th *ngIf="!standalone">תעודת זהות</th>
+        <th *ngIf="!standalone">מספר טלפון</th>
+        <th>שם מוצר</th>
+        <th>תאריך השאלה</th>
+        <th>תאריך החזרה</th>
+        <th>שיטת תשלום</th>
+        <th>סטטוס</th>
+        <th *ngIf="standalone"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-loan>
+      <tr>
+        <td>{{ loan.id | slice : 0 : 3 }}</td>
+        <td *ngIf="!standalone">{{ loan.userId }}</td>
+        <td *ngIf="!standalone">{{ loan.phone }}</td>
+        <td>{{ loan.productName }}</td>
+        <td>{{ loan.startDate | date : "d/M/yy" }}</td>
+        <td>{{ loan.endDate | date : "d/M/yy" }}</td>
+        <td>{{ loan.paymentMethod | paymentMethodConvertor }}</td>
+        <td *ngIf="standalone">
+          <div
+            [class.pending]="loan.isApproved === 0"
+            [class.approved]="loan.isApproved === 1"
+            [class.reject]="loan.isApproved === 2"
+          >
+            {{ loan.isApproved | loanStatusConvertor }}
+          </div>
+        </td>
+        <td *ngIf="!standalone">
+          <div *ngIf="loan.isApproved === 0" class="loan-status">
+            <p-button
+              icon="pi pi-check"
+              [rounded]="true"
+              (click)="approveLoan(loan.id)"
+              [outlined]="true"
+            ></p-button>
+            <p-button
+              icon="pi pi-times"
+              [rounded]="true"
+              severity="danger"
+              (click)="rejectLoan(loan.id)"
+              [outlined]="true"
+            ></p-button>
+          </div>
+
+          <div
+            *ngIf="loan.isApproved !== 0"
+            [class.pending]="loan.isApproved === 0"
+            [class.approved]="loan.isApproved === 1"
+            [class.reject]="loan.isApproved === 2"
+          >
+            {{ loan.isApproved | loanStatusConvertor }}
+          </div>
+        </td>
+        <td *ngIf="standalone">
+          <p
+            *ngIf="
+              loan.isApproved === 1 &&
+              loan.productName !== 'מוצר זה איו קיים עוד' &&
+              loan.rate === -1
+            "
+            class="rate-link"
+            (click)="op.toggle($event); selectedLoan = loan"
+          >
+            דרג את המוצר
+          </p>
+          <p
+            *ngIf="
+              loan.rate !== -1 && loan.productName !== 'מוצר זה איו קיים עוד'
+            "
+          >
+            נשלח דירוג למוצר זה
+          </p>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <footer *ngIf="standalone" class="app-footer">
+    <button mat-button routerLink="/">חזור לתפריט ראשי</button>
+  </footer>
+</div>
+
+<p-overlayPanel #op>
+  <ng-template pTemplate="content">
+    <div *ngIf="selectedLoan" class="overlay-rate">
+      <p-rating [(ngModel)]="selectedLoanRate"></p-rating>
+      <p-button
+        (click)="sendRate(selectedLoan.id || '1', selectedLoanRate)"
+        label="שלח"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-overlayPanel>
