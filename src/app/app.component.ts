@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LendingPageComponent } from './lending-page/lending-page.component';
-import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
     CommonModule,
     RouterOutlet,
     LendingPageComponent,
-    CustomerDetailsComponent,
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

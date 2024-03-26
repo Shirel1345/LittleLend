@@ -49,7 +49,7 @@ export class LendingPageComponent {
     const currentDate = new Date();
 
     // Check if the selected date is before the current date
-    if (selectedDate < currentDate) {
+    if (selectedDate <= currentDate) {
       return { invalidDate: true };
     }
 
@@ -66,3 +66,4 @@ export class LendingPageComponent {
     }
   }
 }
+
