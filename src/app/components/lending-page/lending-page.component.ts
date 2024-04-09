@@ -9,7 +9,7 @@ import {
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Product } from '../../model/product.model';
 import { LoanService } from '../../services/loan.service';
-import { CreateLoanDto, Loan } from '../../model/loan.model';
+import { CreateLoanDto, Loan, PaymentMethod } from '../../model/loan.model';
 import { take } from 'rxjs';
 import { PAYMENT_METHODS } from '../../constant/paymentMethod.const';
 import { AuthService } from '../../services/auth.service';
@@ -53,7 +53,7 @@ export class LendingPageComponent implements OnInit {
     private loanService: LoanService,
     private authService: AuthService,
     @Inject(MAT_DIALOG_DATA) public data: Product
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.productId = this.data.id as string;
@@ -97,12 +97,13 @@ export class LendingPageComponent implements OnInit {
 
   onSubmit(): void {
     const formValue = this.loanForm.value;
+    debugger
     const value: CreateLoanDto = {
       productId: this.productId,
       userId: this.userId,
       startDate: formValue.startDate || new Date(),
       endDate: formValue.endDate || new Date(),
-      paymentMethod: formValue.paymentMethod || 1,
+      paymentMethod: formValue.paymentMethod as any,
     };
 
     this.loanService

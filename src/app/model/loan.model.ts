@@ -19,9 +19,9 @@ export interface CreateLoanDto {
 }
 
 export enum PaymentMethod {
-  Bit,
-  Cash,
-  Credit,
+  Bit = 0,
+  Cash = 1,
+  Credit = 2,
 }
 
 export enum LoanStatus {
